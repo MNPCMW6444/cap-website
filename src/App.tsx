@@ -9,7 +9,6 @@ import {
   Grid,
   RadioGroup,
   FormControlLabel,
-  FormControl,
   Slider,
   FormLabel,
   Radio,
@@ -136,9 +135,7 @@ const App = () => {
             </TextField>
           </Box>
           <Box sx={{ mt: 3 }}>
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Term length in months*</FormLabel>
-            </FormControl>
+            <FormLabel component="legend">Term length in months*</FormLabel>
             <Slider
               value={formData.termLength as any}
               min={6}
@@ -150,19 +147,18 @@ const App = () => {
             />
           </Box>
           <Box sx={{ mt: 3 }}>
-            <TextField
-              fullWidth
-              required
-              select
-              name="gracePeriod"
-              label="Grace period"
-              value={formData.gracePeriod}
+            <RadioGroup
+              row
+              aria-label="term length"
+              name="termLength"
+              value={formData.termLength}
               onChange={handleChange}
             >
-              <MenuItem value="0 months">0 months</MenuItem>
-              <MenuItem value="3 months">3 months</MenuItem>
-              <MenuItem value="6 months">6 months</MenuItem>
-            </TextField>
+              <FormControlLabel value="6" control={<Radio />} label="6" />
+              <FormControlLabel value="9" control={<Radio />} label="9" />
+              <FormControlLabel value="12" control={<Radio />} label="12" />
+              <FormControlLabel value="15" control={<Radio />} label="15" />
+            </RadioGroup>
           </Box>
           <Box sx={{ mt: 3 }}>
             <TextField
@@ -177,7 +173,7 @@ const App = () => {
           </Box>
           <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
             <StyledButton type="submit" variant="contained">
-              Submit
+              Calculate
             </StyledButton>
           </Box>
         </form>
