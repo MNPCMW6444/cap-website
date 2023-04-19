@@ -26,13 +26,16 @@ const marks = [
 
 const StyledContainer = styled(Container)`
   font-family: "Helvetica", sans-serif;
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
 `;
 
 const StyledButton = styled(Button)`
-  background-color: #333;
+  background-color: #3f51b5;
   color: white;
   &:hover {
-    background-color: #555;
+    background-color: #536dfe;
   }
 `;
 
@@ -48,7 +51,7 @@ const CustomSlider = styled(Slider)`
     height: 12px;
   }
   .MuiSlider-markLabel {
-    color: #757575;
+    color: #fff;
     font-size: 0.875rem;
   }
   .MuiSlider-thumb {
@@ -57,9 +60,50 @@ const CustomSlider = styled(Slider)`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 24px; // Adjust the width according to the size of your PNG file
-    height: 24px; // Adjust the height according to the size of your PNG file
+    width: 24px;
+    height: 24px;
   }
+`;
+
+const StyledTextField = styled(TextField)`
+  label.Mui-focused {
+    color: #fff;
+  }
+  .MuiInputLabel-root {
+    color: #fff;
+  }
+  .MuiInputBase-root {
+    color: #fff;
+  }
+  .MuiInput-underline:before {
+    border-bottom-color: #fff;
+  }
+  .MuiInput-underline:after {
+    border-bottom-color: #fff;
+  }
+  .MuiInput-underline:hover:not(.Mui-disabled):before {
+    border-bottom-color: #fff;
+  }
+  .MuiSelect-icon {
+    color: #fff;
+  }
+`;
+
+const StyledFormLabel = styled(({ ...otherProps }) => (
+  <FormLabel {...otherProps} />
+))`
+  color: #fff;
+`;
+
+const StyledFormControlLabel = styled(FormControlLabel)`
+  color: #fff;
+  .MuiRadio-root {
+    color: #fff;
+  }
+`;
+
+const StyledTypography = styled(Typography)`
+  color: #fff;
 `;
 
 const App = () => {
@@ -90,14 +134,14 @@ const App = () => {
   return (
     <StyledContainer maxWidth="sm">
       <Box sx={{ mt: 8 }}>
-        <Typography variant="h4" align="center">
+        <StyledTypography variant="h4" align="center">
           See What You Can Get
-        </Typography>
+        </StyledTypography>
         <form onSubmit={handleSubmit}>
           <Box sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={8}>
-                <TextField
+                <StyledTextField
                   fullWidth
                   required
                   name="annualRevenue"
@@ -107,7 +151,7 @@ const App = () => {
                 />
               </Grid>
               <Grid item xs={4}>
-                <TextField
+                <StyledTextField
                   fullWidth
                   required
                   select
@@ -118,12 +162,12 @@ const App = () => {
                 >
                   <MenuItem value="EUR">EUR</MenuItem>
                   <MenuItem value="USD">USD</MenuItem>
-                </TextField>
+                </StyledTextField>
               </Grid>
             </Grid>
           </Box>
           <Box sx={{ mt: 3 }}>
-            <TextField
+            <StyledTextField
               fullWidth
               required
               select
@@ -140,10 +184,10 @@ const App = () => {
               <MenuItem value="50_100">50-100%</MenuItem>
               <MenuItem value="100_150">100-150%</MenuItem>
               <MenuItem value=">150">&gt;150%</MenuItem>
-            </TextField>
+            </StyledTextField>
           </Box>
           <Box sx={{ mt: 3 }}>
-            <TextField
+            <StyledTextField
               fullWidth
               required
               select
@@ -160,11 +204,13 @@ const App = () => {
               <MenuItem value="6-12">6-12 months</MenuItem>
               <MenuItem value="12-18">12-18 months</MenuItem>
               <MenuItem value=">18">&gt;18 months</MenuItem>
-            </TextField>
+            </StyledTextField>
           </Box>
 
           <Box sx={{ mt: 3 }}>
-            <FormLabel component="legend">Term length in months*</FormLabel>
+            <StyledFormLabel component="legend">
+              Term length in months*
+            </StyledFormLabel>
             <CustomSlider
               value={formData.termLength}
               min={6}
@@ -184,17 +230,17 @@ const App = () => {
               value={formData.gracePeriod}
               onChange={handleChange}
             >
-              <FormControlLabel
+              <StyledFormControlLabel
                 value="0"
                 control={<Radio />}
                 label="0 Months"
               />
-              <FormControlLabel
+              <StyledFormControlLabel
                 value="3"
                 control={<Radio />}
                 label="3 Months"
               />
-              <FormControlLabel
+              <StyledFormControlLabel
                 value="6"
                 control={<Radio />}
                 label="6 Months"
@@ -202,7 +248,7 @@ const App = () => {
             </RadioGroup>
           </Box>
           <Box sx={{ mt: 3 }}>
-            <TextField
+            <StyledTextField
               fullWidth
               required
               name="email"
