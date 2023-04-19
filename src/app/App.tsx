@@ -16,8 +16,9 @@ import {
 import { styled } from "@mui/system";
 
 import VIcon from "./assets/check-white.svg";
-import ProvideMainServer from "./providers/servers/ProvideMainServer";
-import { MainServerContext } from "./context/MainServerContext";
+import ProvideMainServer, {
+  MainServerContext,
+} from "@caphub-funding/mainserver-provider";
 
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
 
