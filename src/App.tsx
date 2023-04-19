@@ -15,6 +15,8 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 
+import { shouldForwardProp } from "@mui/system";
+
 import VIcon from "./assets/check-white.svg";
 
 const marks = [
@@ -89,9 +91,9 @@ const StyledTextField = styled(TextField)`
   }
 `;
 
-const StyledFormLabel = styled(({ ...otherProps }) => (
-  <FormLabel {...otherProps} />
-))`
+const StyledFormLabel = styled(FormLabel, {
+  shouldForwardProp: (prop) => shouldForwardProp(prop),
+})`
   color: #fff;
 `;
 
