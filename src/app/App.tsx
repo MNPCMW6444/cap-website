@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Stack } from "@mui/material";
-
 import {
   Container,
   Box,
@@ -18,6 +17,7 @@ import { styled } from "@mui/system";
 
 import VIcon from "./assets/check-white.svg";
 import ProvideMainServer from "./providers/servers/ProvideMainServer";
+import { MainServerContext } from "./context/MainServerContext";
 
 const marks = [
   { value: 6, label: "6" },
@@ -25,6 +25,7 @@ const marks = [
   { value: 12, label: "12" },
   { value: 15, label: "15" },
 ];
+
 const StyledContainer = styled(Container)`
   font-family: "Helvetica", sans-serif;
   background-color: #000;
@@ -124,8 +125,28 @@ const StyledTypography = styled(Typography)`
   color: #fff;
 `;
 
+interface FormData {
+  annualRevenue: string;
+  currency: string;
+  annualGrowthRate: string;
+  currentRunway: string;
+  termLength: number;
+  gracePeriod: string;
+  email: string;
+}
+
+interface ActionStateType {
+  DOING: string;
+  IDLE: string;
+}
+
+const ACTION_STATES: ActionStateType = {
+  DOING: "Calculating",
+  IDLE: "Calculate",
+};
+
 const App = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     annualRevenue: "",
     currency: "EUR",
     annualGrowthRate: ">150%",
@@ -134,6 +155,8 @@ const App = () => {
     gracePeriod: "0 months",
     email: "",
   });
+
+  const [action, setAction] = useState<keyof ActionStateType>("IDLE");
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -145,8 +168,22 @@ const App = () => {
     console.log(formData);
   };
 
-  const handleSliderChange = (event: any, newValue: any) => {
+  const handleSliderChange = (_: any, newValue: any) => {
     setFormData({ ...formData, termLength: newValue });
+  };
+
+  const axiosInstance = useContext(MainServerContext);
+
+  const sendForm = () => {
+    setAction("DOING");
+    axiosInstance
+      .post("asd", { formData })
+      .then(() => {
+        setAction("IDLE");
+      })
+      .catch(() => {
+        setAction("IDLE");
+      });
   };
 
   return (
@@ -223,7 +260,6 @@ const App = () => {
                 <MenuItem value=">18">&gt;18 months</MenuItem>
               </StyledTextField>
             </Box>
-
             <Box sx={{ mt: 3 }}>
               <StyledFormLabel>Term length in months</StyledFormLabel>
               <CustomSlider
@@ -236,7 +272,6 @@ const App = () => {
                 onChange={handleSliderChange}
               />
             </Box>
-
             <Box sx={{ mt: 3 }}>
               <RadioGroup
                 row
@@ -274,8 +309,8 @@ const App = () => {
               />
             </Box>
             <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
-              <StyledButton type="submit" variant="contained">
-                Calculate
+              <StyledButton onClick={sendForm} variant="contained">
+                {ACTION_STATES[action]}
               </StyledButton>
             </Box>
           </form>
