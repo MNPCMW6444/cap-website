@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Stack } from "@mui/material";
+
 import {
   Container,
   Box,
@@ -6,7 +8,6 @@ import {
   TextField,
   MenuItem,
   Button,
-  Grid,
   RadioGroup,
   FormControlLabel,
   FormLabel,
@@ -14,8 +15,6 @@ import {
   Slider,
 } from "@mui/material";
 import { styled } from "@mui/system";
-
-import { shouldForwardProp } from "@mui/system";
 
 import VIcon from "./assets/check-white.svg";
 
@@ -25,12 +24,27 @@ const marks = [
   { value: 12, label: "12" },
   { value: 15, label: "15" },
 ];
-
 const StyledContainer = styled(Container)`
   font-family: "Helvetica", sans-serif;
-  background-color: #333;
+  background-color: #000;
+  opacity: 0.85;
   color: #fff;
-  padding: 16px;
+  padding-top: 2px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 10px;
+
+  @media (max-width: 600px) {
+    padding-left: 36px;
+    padding-right: 36px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -76,6 +90,9 @@ const StyledTextField = styled(TextField)`
   }
   .MuiInputBase-root {
     color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    padding: 6px 12px;
   }
   .MuiInput-underline:before {
     border-bottom-color: #fff;
@@ -91,9 +108,7 @@ const StyledTextField = styled(TextField)`
   }
 `;
 
-const StyledFormLabel = styled(FormLabel, {
-  shouldForwardProp: (prop) => shouldForwardProp(prop),
-})`
+const StyledFormLabel = styled(FormLabel)`
   color: #fff;
 `;
 
@@ -140,33 +155,31 @@ const App = () => {
           See What You Can Get
         </StyledTypography>
         <form onSubmit={handleSubmit}>
-          <Box sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={8}>
-                <StyledTextField
-                  fullWidth
-                  required
-                  name="annualRevenue"
-                  label="Annual recurring revenue"
-                  value={formData.annualRevenue}
-                  onChange={handleChange}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <StyledTextField
-                  fullWidth
-                  required
-                  select
-                  name="currency"
-                  label="Currency"
-                  value={formData.currency}
-                  onChange={handleChange}
-                >
-                  <MenuItem value="EUR">EUR</MenuItem>
-                  <MenuItem value="USD">USD</MenuItem>
-                </StyledTextField>
-              </Grid>
-            </Grid>
+          <Box sx={{ mt: 8 }}>
+            <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+              <StyledTextField
+                fullWidth
+                required
+                name="annualRevenue"
+                label="Annual recurring revenue"
+                value={formData.annualRevenue}
+                onChange={handleChange}
+                sx={{ flexGrow: 1 }}
+              />
+              <StyledTextField
+                fullWidth
+                required
+                select
+                name="currency"
+                label="Currency"
+                value={formData.currency}
+                onChange={handleChange}
+                sx={{ minWidth: 120 }}
+              >
+                <MenuItem value="EUR">EUR</MenuItem>
+                <MenuItem value="USD">USD</MenuItem>
+              </StyledTextField>
+            </Stack>
           </Box>
           <Box sx={{ mt: 3 }}>
             <StyledTextField
@@ -174,7 +187,7 @@ const App = () => {
               required
               select
               name="annualGrowthRate"
-              label="Annual growth rate*"
+              label="Annual growth rate"
               value={formData.annualGrowthRate}
               onChange={handleChange}
             >
@@ -194,7 +207,7 @@ const App = () => {
               required
               select
               name="currentRunway"
-              label="Current runway*"
+              label="Current runway"
               value={formData.currentRunway}
               onChange={handleChange}
             >
@@ -210,9 +223,7 @@ const App = () => {
           </Box>
 
           <Box sx={{ mt: 3 }}>
-            <StyledFormLabel component="legend">
-              Term length in months*
-            </StyledFormLabel>
+            <StyledFormLabel>Term length in months</StyledFormLabel>
             <CustomSlider
               value={formData.termLength}
               min={6}
@@ -254,7 +265,7 @@ const App = () => {
               fullWidth
               required
               name="email"
-              label="Email*"
+              label="Email"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
