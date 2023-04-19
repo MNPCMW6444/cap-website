@@ -19,6 +19,8 @@ import VIcon from "./assets/check-white.svg";
 import ProvideMainServer from "./providers/servers/ProvideMainServer";
 import { MainServerContext } from "./context/MainServerContext";
 
+import { WebsiteFormData } from "@caphub-funding/caphub-types";
+
 const marks = [
   { value: 6, label: "6" },
   { value: 9, label: "9" },
@@ -125,7 +127,7 @@ const StyledTypography = styled(Typography)`
   color: #fff;
 `;
 
- ActionStateType {
+interface ActionStateType {
   DOING: string;
   IDLE: string;
 }
@@ -136,7 +138,7 @@ const ACTION_STATES: ActionStateType = {
 };
 
 const App = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<WebsiteFormData>({
     annualRevenue: "",
     currency: "EUR",
     annualGrowthRate: ">150%",
