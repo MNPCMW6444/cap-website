@@ -9,11 +9,20 @@ import {
   Grid,
   RadioGroup,
   FormControlLabel,
-  Slider,
   FormLabel,
   Radio,
+  Slider,
 } from "@mui/material";
 import { styled } from "@mui/system";
+
+import VIcon from "./assets/check-white.svg";
+
+const marks = [
+  { value: 6, label: "6" },
+  { value: 9, label: "9" },
+  { value: 12, label: "12" },
+  { value: 15, label: "15" },
+];
 
 const StyledContainer = styled(Container)`
   font-family: "Helvetica", sans-serif;
@@ -27,12 +36,31 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const marks = [
-  { value: 6, label: "6" },
-  { value: 9, label: "9" },
-  { value: 12, label: "12" },
-  { value: 15, label: "15" },
-];
+const CustomSlider = styled(Slider)`
+  color: #3f51b5;
+  .MuiSlider-valueLabel {
+    background-color: #3f51b5;
+    color: #fff;
+  }
+  .MuiSlider-mark {
+    background-color: #bfbfbf;
+    width: 1px;
+    height: 12px;
+  }
+  .MuiSlider-markLabel {
+    color: #757575;
+    font-size: 0.875rem;
+  }
+  .MuiSlider-thumb {
+    position: relative;
+    background-image: url(${VIcon});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 24px; // Adjust the width according to the size of your PNG file
+    height: 24px; // Adjust the height according to the size of your PNG file
+  }
+`;
 
 const App = () => {
   const [formData, setFormData] = useState({
@@ -40,7 +68,7 @@ const App = () => {
     currency: "EUR",
     annualGrowthRate: ">150%",
     currentRunway: "6-12 months",
-    termLength: "",
+    termLength: 6,
     gracePeriod: "0 months",
     email: "",
   });
@@ -134,10 +162,11 @@ const App = () => {
               <MenuItem value=">18">&gt;18 months</MenuItem>
             </TextField>
           </Box>
+
           <Box sx={{ mt: 3 }}>
             <FormLabel component="legend">Term length in months*</FormLabel>
-            <Slider
-              value={formData.termLength as any}
+            <CustomSlider
+              value={formData.termLength}
               min={6}
               max={15}
               step={3}
@@ -146,18 +175,30 @@ const App = () => {
               onChange={handleSliderChange}
             />
           </Box>
+
           <Box sx={{ mt: 3 }}>
             <RadioGroup
               row
-              aria-label="term length"
-              name="termLength"
-              value={formData.termLength}
+              aria-label="Grace Period"
+              name="gracePeriod"
+              value={formData.gracePeriod}
               onChange={handleChange}
             >
-              <FormControlLabel value="6" control={<Radio />} label="6" />
-              <FormControlLabel value="9" control={<Radio />} label="9" />
-              <FormControlLabel value="12" control={<Radio />} label="12" />
-              <FormControlLabel value="15" control={<Radio />} label="15" />
+              <FormControlLabel
+                value="0"
+                control={<Radio />}
+                label="0 Months"
+              />
+              <FormControlLabel
+                value="3"
+                control={<Radio />}
+                label="3 Months"
+              />
+              <FormControlLabel
+                value="6"
+                control={<Radio />}
+                label="6 Months"
+              />
             </RadioGroup>
           </Box>
           <Box sx={{ mt: 3 }}>
