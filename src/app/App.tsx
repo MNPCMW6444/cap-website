@@ -18,10 +18,8 @@ import { styled } from "@mui/system";
 import VIcon from "./assets/check-white.svg";
 
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
-import {
-  MainServerContext,
-  ProvideMainServer,
-} from "@caphub-funding/mainserver-provider";
+
+import * as MainServerProvider from "@caphub-funding/mainserver-provider";
 
 const marks = [
   { value: 6, label: "6" },
@@ -166,7 +164,7 @@ const App = () => {
     setFormData({ ...formData, termLength: newValue });
   };
 
-  const axiosInstance = useContext(MainServerContext);
+  const axiosInstance = useContext(MainServerProvider.MainServerContext);
 
   const sendForm = () => {
     setAction("DOING");
@@ -179,9 +177,10 @@ const App = () => {
         setAction("IDLE");
       });
   };
+  const X = MainServerProvider.ProvideMainServer;
 
   return (
-    <ProvideMainServer>
+    <X>
       <StyledContainer maxWidth="sm">
         <Box sx={{ mt: 8 }}>
           <StyledTypography variant="h4" align="center">
@@ -310,7 +309,7 @@ const App = () => {
           </form>
         </Box>
       </StyledContainer>
-    </ProvideMainServer>
+    </X>
   );
 };
 
