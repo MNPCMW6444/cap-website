@@ -16,11 +16,12 @@ import {
 import { styled } from "@mui/system";
 
 import VIcon from "./assets/check-white.svg";
-import ProvideMainServer, {
-  MainServerContext,
-} from "@caphub-funding/mainserver-provider";
 
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
+import {
+  MainServerContext,
+  ProvideMainServer,
+} from "@caphub-funding/mainserver-provider";
 
 const marks = [
   { value: 6, label: "6" },
