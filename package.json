@@ -1,9 +1,9 @@
 {
   "name": "website",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": true,
   "dependencies": {
-    "@caphub-funding/mainserver-provider": "^1.0.7",
+    "@caphub-funding/mainserver-provider": "^1.0.8",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/lab": "^5.0.0-alpha.127",
