@@ -19,8 +19,7 @@ import VIcon from "./assets/check-white.svg";
 
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
 
-import {
-  MainServerProvider,
+import MainServerProvider, {
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
 
