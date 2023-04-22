@@ -19,7 +19,10 @@ import VIcon from "./assets/check-white.svg";
 
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
 
-import * as MainServerProvider from "@caphub-funding/mainserver-provider";
+import {
+  MainServerProvider,
+  MainServerContext,
+} from "@caphub-funding/mainserver-provider";
 
 const marks = [
   { value: 6, label: "6" },
@@ -164,7 +167,7 @@ const App = () => {
     setFormData({ ...formData, termLength: newValue });
   };
 
-  const axiosInstance = useContext(MainServerProvider.MainServerContext);
+  const axiosInstance = useContext(MainServerContext);
 
   const sendForm = () => {
     setAction("DOING");
