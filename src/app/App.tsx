@@ -19,7 +19,8 @@ import VIcon from "./assets/check-white.svg";
 
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
 
-import MainServerProvider, {
+import {
+  ProvideMainServer,
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
 
@@ -179,10 +180,9 @@ const App = () => {
         setAction("IDLE");
       });
   };
-  const X = MainServerProvider.ProvideMainServer;
 
   return (
-    <X>
+    <ProvideMainServer>
       <StyledContainer maxWidth="sm">
         <Box sx={{ mt: 8 }}>
           <StyledTypography variant="h4" align="center">
@@ -311,7 +311,7 @@ const App = () => {
           </form>
         </Box>
       </StyledContainer>
-    </X>
+    </ProvideMainServer>
   );
 };
 
