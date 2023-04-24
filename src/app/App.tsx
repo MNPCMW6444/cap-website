@@ -14,11 +14,8 @@ import {
   Slider,
 } from "@mui/material";
 import { styled } from "@mui/system";
-
 import VIcon from "./assets/check-white.svg";
-
 import { WebsiteFormData } from "@caphub-funding/caphub-types";
-
 import ProvideMainServer, {
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
