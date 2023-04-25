@@ -70,7 +70,7 @@ p {
 a {
   color: #1a1b1f;
   text-decoration: underline;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   display: block;
 }
 
@@ -134,7 +134,7 @@ figcaption {
 }
 
 .section {
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
   margin-left: 30px;
   margin-right: 30px;
 }
@@ -187,7 +187,7 @@ figcaption {
 
 .container.logo {
   max-width: 97vw;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -212,7 +212,7 @@ figcaption {
 }
 
 .paragraph-bigger.cc-bigger-light {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .paragraph-bigger.cc-bigger-light.nwe {
@@ -223,7 +223,7 @@ figcaption {
 }
 
 .paragraph-bigger.cc-bigger-white-light {
-  opacity: .8;
+  opacity: 0.8;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   object-fit: fill;
@@ -252,8 +252,8 @@ figcaption {
   font-size: 12px;
   line-height: 20px;
   text-decoration: none;
-  transition: background-color .4s, opacity .4s, color .4s;
-  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+  transition: background-color 0.4s, opacity 0.4s, color 0.4s;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
@@ -343,11 +343,11 @@ figcaption {
 }
 
 .button.cc-white-button:hover {
-  background-color: rgba(255, 255, 255, .8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .button.cc-white-button:active {
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .button.button3 {
@@ -380,7 +380,7 @@ figcaption {
 }
 
 .label.cc-light {
-  opacity: .6;
+  opacity: 0.6;
   color: #000;
   background-color: rgba(0, 0, 0, 0);
   padding-top: 15px;
@@ -393,7 +393,7 @@ figcaption {
 }
 
 .label.cc-blog-date {
-  opacity: .6;
+  opacity: 0.6;
   margin-top: 20px;
 }
 
@@ -414,13 +414,13 @@ figcaption {
 }
 
 .rich-text p {
-  opacity: .6;
+  opacity: 0.6;
   margin-top: 15px;
   margin-bottom: 25px;
 }
 
 .rich-text figcaption {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .rich-text figure {
@@ -429,7 +429,7 @@ figcaption {
 }
 
 .paragraph-light {
-  opacity: .7;
+  opacity: 0.7;
   color: #000;
   text-align: left;
   padding: 15px;
@@ -517,11 +517,11 @@ figcaption {
 }
 
 .logo-link:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .logo-link:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .menu {
@@ -563,7 +563,7 @@ figcaption {
 }
 
 .navigation-item {
-  opacity: .6;
+  opacity: 0.6;
   color: #000;
   letter-spacing: 1px;
   text-transform: capitalize;
@@ -578,11 +578,11 @@ figcaption {
 }
 
 .navigation-item:hover {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .navigation-item:active {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .navigation-item.w--current {
@@ -592,12 +592,12 @@ figcaption {
 }
 
 .navigation-item.w--current:hover {
-  opacity: .8;
+  opacity: 0.8;
   color: #32343a;
 }
 
 .navigation-item.w--current:active {
-  opacity: .7;
+  opacity: 0.7;
   color: #32343a;
 }
 
@@ -628,10 +628,10 @@ figcaption {
 }
 
 .webflow-link {
-  opacity: .5;
+  opacity: 0.5;
   align-items: center;
   text-decoration: none;
-  transition: opacity .4s;
+  transition: opacity 0.4s;
   display: flex;
 }
 
@@ -640,7 +640,7 @@ figcaption {
 }
 
 .webflow-link:active {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .webflow-logo-tiny {
@@ -739,7 +739,8 @@ figcaption {
   grid-column-gap: 80px;
   grid-row-gap: 60px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: ". . ."
+  grid-template-areas:
+    ". . ."
     ". . .";
   margin-bottom: 120px;
 }
@@ -793,7 +794,8 @@ figcaption {
 .contact-form-grid {
   grid-column-gap: 80px;
   grid-row-gap: 30px;
-  grid-template: ". ."
+  grid-template:
+    ". ."
     / 2.5fr 1fr;
   align-items: start;
   margin-top: 100px;
@@ -809,7 +811,8 @@ figcaption {
   grid-row-gap: 22px;
   flex-direction: column;
   flex: 0 auto;
-  grid-template: "Area Area-10 Area-11 Area-14"
+  grid-template:
+    "Area Area-10 Area-11 Area-14"
     "Area-2 Area-9 Area-12 Area-13" 1fr
     "Area-3 Area-8 Area-15 Area-16"
     "Area-6 Area-7 Area-17 Area-18"
@@ -818,7 +821,7 @@ figcaption {
     "Area-25 Area-26 Area-27 Area-28"
     "Area-33 Area-29 Area-30 ."
     "Area-32 Area-31 Area-34 ."
-    / minmax(0, .25fr) minmax(200px, .25fr) minmax(200px, .25fr) .75fr;
+    / minmax(0, 0.25fr) minmax(200px, 0.25fr) minmax(200px, 0.25fr) 0.75fr;
   grid-auto-columns: 1fr;
   grid-auto-flow: row;
   align-content: start;
@@ -839,7 +842,7 @@ figcaption {
   padding: 21px 20px;
   font-size: 14px;
   line-height: 26px;
-  transition: border-color .4s;
+  transition: border-color 0.4s;
 }
 
 .text-field:hover {
@@ -852,16 +855,16 @@ figcaption {
 }
 
 .text-field::-ms-input-placeholder {
-  color: rgba(50, 52, 58, .4);
+  color: rgba(50, 52, 58, 0.4);
 }
 
 .text-field::placeholder {
-  color: rgba(50, 52, 58, .4);
+  color: rgba(50, 52, 58, 0.4);
 }
 
 .text-field.cc-contact-field {
   text-align: left;
-  background-color: rgba(255, 247, 211, .75);
+  background-color: rgba(255, 247, 211, 0.75);
   border-radius: 20px;
   margin-bottom: 0;
   padding-top: 21px;
@@ -880,9 +883,9 @@ figcaption {
 .contact-form {
   width: 100%;
   height: 100%;
-  opacity: .85;
+  opacity: 0.85;
   background-color: #000;
-  background-image: url('../images/7.jpg');
+  background-image: url("../images/7.jpg");
   background-position: 0 100%;
   background-size: cover;
   border-radius: 20px;
@@ -917,7 +920,8 @@ figcaption {
   grid-column-gap: 80px;
   grid-row-gap: 60px;
   text-align: center;
-  grid-template: ". . ."
+  grid-template:
+    ". . ."
     / 1fr 1fr 1fr;
   margin-bottom: 120px;
 }
@@ -943,7 +947,8 @@ figcaption {
   grid-column-gap: 30px;
   grid-row-gap: 30px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: ". . ."
+  grid-template-areas:
+    ". . ."
     ". . .";
   margin-bottom: 60px;
 }
@@ -968,7 +973,8 @@ figcaption {
 .projects-grid {
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  grid-template: "."
+  grid-template:
+    "."
     "."
     "."
     / 1fr;
@@ -994,11 +1000,11 @@ figcaption {
 }
 
 .project-name-link:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .project-name-link:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .project-cover-link {
@@ -1006,18 +1012,18 @@ figcaption {
 }
 
 .project-cover-link:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .project-cover-link:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .project-overview-header {
   height: 620px;
   color: #fff;
   background-color: #f4f4f4;
-  background-image: url('../images/portfolio-1---wide.svg');
+  background-image: url("../images/portfolio-1---wide.svg");
   background-position: 50%;
   background-size: cover;
   justify-content: center;
@@ -1027,19 +1033,20 @@ figcaption {
 }
 
 .project-overview-header.cc-project-2-header {
-  background-image: url('../images/portfolio-2---wide.svg');
+  background-image: url("../images/portfolio-2---wide.svg");
   background-position: 50%;
 }
 
 .project-overview-header.cc-project-3-header {
-  background-image: url('../images/portfolio-3---wide.svg');
+  background-image: url("../images/portfolio-3---wide.svg");
   background-size: cover;
 }
 
 .project-details-grid {
   grid-column-gap: 80px;
   grid-row-gap: 30px;
-  grid-template: ". ."
+  grid-template:
+    ". ."
     / 1fr 2fr;
   align-items: start;
   margin-top: 100px;
@@ -1063,7 +1070,7 @@ figcaption {
 .detail-header-image {
   width: 100%;
   height: 620px;
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg');
+  background-image: url("https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg");
   background-position: 0 0;
   background-size: cover;
   margin-bottom: 60px;
@@ -1091,20 +1098,20 @@ figcaption {
 .blog-preview-image {
   width: 100%;
   height: 620px;
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg');
+  background-image: url("https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg");
   background-position: 0 0;
   background-size: cover;
   margin-bottom: 45px;
-  transition: opacity .6s;
+  transition: opacity 0.6s;
   display: block;
 }
 
 .blog-preview-image:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .blog-preview-image:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .blog-summary-wrap {
@@ -1124,15 +1131,15 @@ figcaption {
 }
 
 .blog-heading-link:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .blog-heading-link:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .contact-email-link {
-  opacity: .6;
+  opacity: 0.6;
   margin-bottom: 5px;
 }
 
@@ -1141,7 +1148,7 @@ figcaption {
 }
 
 .contact-email-link:active {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .protected-form {
@@ -1226,7 +1233,8 @@ figcaption {
   background-color: #fff;
   border-radius: 20px;
   outline: 3px #1a1b1f;
-  grid-template: ". ."
+  grid-template:
+    ". ."
     / 1fr 2fr;
   align-content: stretch;
   align-items: center;
@@ -1313,26 +1321,26 @@ figcaption {
 }
 
 .business-article-heading:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .business-article-heading:active {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 ._w-lightbox-caption {
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .body {
   background-color: rgba(0, 0, 0, 0);
-  background-image: url('../images/2.jpg');
+  background-image: url("../images/2.jpg");
   background-position: 50%;
   background-size: cover;
   background-attachment: fixed;
   border-radius: 0;
   font-family: Helvetica, sans-serif;
-  transition: opacity .125s;
+  transition: opacity 0.125s;
   overflow: visible;
 }
 
@@ -1344,7 +1352,7 @@ figcaption {
 .container-2 {
   clear: none;
   text-align: center;
-  background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, 0.7);
   flex-flow: wrap;
   align-content: center;
   justify-content: center;
@@ -1487,14 +1495,13 @@ figcaption {
   opacity: 1;
   outline-offset: 0px;
   text-align: center;
-  mix-blend-mode: overlay;
   background-color: #fff;
   border: 1px #000;
   border-radius: 20px;
   outline: 3px solid #000;
   font-style: normal;
   display: block;
-  box-shadow: 0 10px 20px 8px rgba(0, 0, 0, .2);
+  box-shadow: 0 10px 20px 8px rgba(0, 0, 0, 0.2);
 }
 
 .column-6 {
@@ -1524,7 +1531,7 @@ figcaption {
 }
 
 .body-2 {
-  background-image: url('../images/dhdhd.gif');
+  background-image: url("../images/dhdhd.gif");
   background-position: 0 0;
   background-size: auto;
   background-attachment: fixed;
@@ -1564,7 +1571,7 @@ figcaption {
 }
 
 .container-4 {
-  background-color: rgba(255, 255, 255, .58);
+  background-color: rgba(255, 255, 255, 0.58);
   justify-content: space-around;
   align-items: center;
   display: flex;
@@ -1673,7 +1680,7 @@ figcaption {
 .section-5 {
   width: 100%;
   height: 75vh;
-  background-image: url('../images/7.jpg');
+  background-image: url("../images/7.jpg");
   background-position: 50%;
   background-size: cover;
   justify-content: center;
@@ -1684,8 +1691,9 @@ figcaption {
 .container-6 {
   grid-column-gap: 30px;
   grid-row-gap: 30px;
-  background-color: rgba(0, 0, 0, .7);
-  grid-template: "Area-3 Area-4"
+  background-color: rgba(0, 0, 0, 0.7);
+  grid-template:
+    "Area-3 Area-4"
     "Area-2 Area"
     / 1fr 1fr;
   grid-auto-columns: 1fr;
@@ -1734,7 +1742,8 @@ figcaption {
   grid-row-gap: 5px;
   filter: grayscale(57%);
   flex: 1;
-  grid-template: "Area-8 Area Area-5 Area-6"
+  grid-template:
+    "Area-8 Area Area-5 Area-6"
     "Area-3 Area-2 Area-4 Area-7"
     / 1fr 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
@@ -1815,7 +1824,7 @@ figcaption {
 }
 
 .heading-8.heading-8-1 {
-  color: rgba(0, 0, 0, .4);
+  color: rgba(0, 0, 0, 0.4);
   text-align: center;
   flex: 0 auto;
   align-self: center;
@@ -1837,9 +1846,9 @@ figcaption {
 .slider-2 {
   width: 70vw;
   height: 100%;
-  opacity: .85;
+  opacity: 0.85;
   text-align: center;
-  background-color: rgba(255, 255, 255, .5);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   flex-wrap: nowrap;
   align-content: flex-end;
@@ -1850,7 +1859,7 @@ figcaption {
   padding-bottom: 0;
   padding-left: 0;
   display: block;
-  box-shadow: 0 0 9px 12px rgba(0, 0, 0, .2);
+  box-shadow: 0 0 9px 12px rgba(0, 0, 0, 0.2);
 }
 
 .container-9 {
@@ -1890,7 +1899,7 @@ figcaption {
 }
 
 .section-7 {
-  background-image: url('https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg');
+  background-image: url("https://d3e54v103j8qbb.cloudfront.net/img/background-image.svg");
   background-position: 0 0;
   background-size: auto;
   margin-top: 101px;
@@ -2017,14 +2026,14 @@ figcaption {
 }
 
 .select-field {
-  color: rgba(26, 27, 31, .53);
-  background-color: rgba(255, 247, 211, .75);
+  color: rgba(26, 27, 31, 0.53);
+  background-color: rgba(255, 247, 211, 0.75);
   border-radius: 20px;
 }
 
 .select-field.sss {
   width: 140px;
-  background-color: rgba(255, 255, 255, .75);
+  background-color: rgba(255, 255, 255, 0.75);
   margin-bottom: 0;
 }
 
@@ -2039,7 +2048,7 @@ figcaption {
 
 .section-9 {
   height: 100%;
-  background-image: url('../images/17.jpg');
+  background-image: url("../images/17.jpg");
   background-position: 50%;
   background-size: cover;
 }
@@ -2050,12 +2059,10 @@ figcaption {
 
 .checkbox {
   opacity: 1;
-  mix-blend-mode: soft-light;
   border-radius: 0;
 }
 
 .checkbox-2 {
-  mix-blend-mode: soft-light;
   box-shadow: inset 0 0 #fff;
 }
 
@@ -2090,8 +2097,8 @@ figcaption {
   font-size: 12px;
   line-height: 20px;
   text-decoration: none;
-  transition: background-color .4s, opacity .4s, color .4s;
-  box-shadow: 0 6px 5px rgba(0, 0, 0, .2);
+  transition: background-color 0.4s, opacity 0.4s, color 0.4s;
+  box-shadow: 0 6px 5px rgba(0, 0, 0, 0.2);
 }
 
 .button-2:hover {
@@ -2104,7 +2111,7 @@ figcaption {
 }
 
 .div-block-4 {
-  background-color: rgba(255, 0, 0, .69);
+  background-color: rgba(255, 0, 0, 0.69);
 }
 
 .heading-12 {
@@ -2160,7 +2167,8 @@ figcaption {
   grid-column-gap: 16px;
   grid-row-gap: 16px;
   text-align: center;
-  grid-template: "Area Area-2"
+  grid-template:
+    "Area Area-2"
     / 1fr 1fr;
   grid-auto-columns: 1fr;
   justify-content: center;
@@ -2262,7 +2270,7 @@ figcaption {
 .section-12 {
   background-color: #000;
   border-radius: 0;
-  box-shadow: 0 2px 10px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .column-9 {
@@ -2288,7 +2296,7 @@ figcaption {
 
 .column-11 {
   background-color: #fff;
-  background-image: url('../images/2.jpg');
+  background-image: url("../images/2.jpg");
   background-position: 100% 0;
   background-attachment: fixed;
   border-radius: 0;
@@ -2333,14 +2341,15 @@ figcaption {
 }
 
 .grid-2 {
-  grid-template: "Area Area-2 Area-3"
-    / .25fr .25fr .25fr;
+  grid-template:
+    "Area Area-2 Area-3"
+    / 0.25fr 0.25fr 0.25fr;
   justify-content: start;
 }
 
 .columns-6 {
   background-color: rgba(0, 0, 0, 0);
-  background-image: url('../images/dhdhd.gif');
+  background-image: url("../images/dhdhd.gif");
   background-position: 50%;
   background-size: cover;
   background-attachment: fixed;
@@ -2370,7 +2379,7 @@ figcaption {
 }
 
 .link-2 {
-  color: rgba(255, 255, 255, .6);
+  color: rgba(255, 255, 255, 0.6);
   margin-bottom: 20px;
   text-decoration: none;
 }
@@ -2440,7 +2449,7 @@ figcaption {
   .navigation-item {
     text-align: center;
     padding: 15px 30px;
-    transition: background-color .4s, opacity .4s, color .4s;
+    transition: background-color 0.4s, opacity 0.4s, color 0.4s;
   }
 
   .navigation-item:hover {
@@ -2494,7 +2503,8 @@ figcaption {
   .our-services-grid {
     width: 80%;
     text-align: center;
-    grid-template: ". ."
+    grid-template:
+      ". ."
       ". ."
       ". ."
       / 1fr 1fr;
@@ -2510,7 +2520,8 @@ figcaption {
     width: 80%;
     grid-row-gap: 50px;
     text-align: center;
-    grid-template: "."
+    grid-template:
+      "."
       "."
       / 1fr;
     margin-left: auto;
@@ -2523,7 +2534,8 @@ figcaption {
     text-align: left;
     flex-direction: column;
     flex: 0 auto;
-    grid-template: "Area Area-10 Area-11 Area-14"
+    grid-template:
+      "Area Area-10 Area-11 Area-14"
       "Area-2 Area-9 Area-12 Area-13"
       "Area-3 Area-8 Area-15 Area-16"
       "Area-6 Area-7 Area-17 Area-18"
@@ -2531,7 +2543,7 @@ figcaption {
       "Area-21 Area-22 Area-23 Area-24"
       "Area-25 Area-26 Area-27 Area-28"
       "Area-33 Area-29 Area-30 ."
-      / .5fr minmax(100px, 1.25fr) .5fr minmax(200px, 1fr);
+      / 0.5fr minmax(100px, 1.25fr) 0.5fr minmax(200px, 1fr);
     grid-auto-columns: 1fr;
     grid-auto-flow: row;
     align-content: stretch;
@@ -2547,7 +2559,8 @@ figcaption {
 
   .our-contacts {
     width: 80%;
-    grid-template: "."
+    grid-template:
+      "."
       "."
       "."
       / 1fr;
@@ -2556,7 +2569,8 @@ figcaption {
   }
 
   .team-members {
-    grid-template: ". ."
+    grid-template:
+      ". ."
       ". ."
       ". ."
       / 1fr 1fr;
@@ -2570,7 +2584,8 @@ figcaption {
     width: 80%;
     grid-row-gap: 50px;
     text-align: center;
-    grid-template: "."
+    grid-template:
+      "."
       "."
       / 1fr;
     margin-left: auto;
@@ -2601,7 +2616,8 @@ figcaption {
     height: 100%;
     grid-row-gap: 50px;
     text-align: center;
-    grid-template: "."
+    grid-template:
+      "."
       "."
       / 1fr;
     margin-top: 178px;
@@ -2610,7 +2626,8 @@ figcaption {
   .about-grid.cc-about-2 {
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-areas: "."
+    grid-template-areas:
+      "."
       ".";
     align-content: center;
     justify-content: center;
@@ -2862,7 +2879,8 @@ figcaption {
 
   .our-services-grid {
     grid-row-gap: 60px;
-    grid-template: "."
+    grid-template:
+      "."
       "."
       "."
       "."
@@ -3196,7 +3214,8 @@ figcaption {
   }
 
   .team-members {
-    grid-template: "."
+    grid-template:
+      "."
       "."
       "."
       "."
@@ -3321,7 +3340,7 @@ figcaption {
   .paragraph-4,
   .paragraph-5,
   .paragraph-6 {
-    color: rgba(255, 255, 255, .7);
+    color: rgba(255, 255, 255, 0.7);
     font-style: italic;
   }
 
@@ -3368,7 +3387,8 @@ figcaption {
   .container-7 {
     grid-column-gap: 16px;
     grid-row-gap: 15px;
-    grid-template: "Area-6 Area"
+    grid-template:
+      "Area-6 Area"
       "Area-7 Area-2"
       "Area-8 Area-3"
       / 1fr;
@@ -3430,7 +3450,7 @@ figcaption {
   }
 
   .heading-8.heading-8-1 {
-    color: rgba(0, 0, 0, .4);
+    color: rgba(0, 0, 0, 0.4);
     text-align: center;
   }
 
@@ -3439,7 +3459,7 @@ figcaption {
   }
 
   .paragraph-8.r5 {
-    color: rgba(0, 0, 0, .7);
+    color: rgba(0, 0, 0, 0.7);
     margin-bottom: 14px;
     padding: 0 15px;
   }
@@ -3789,50 +3809,50 @@ figcaption {
   }
 }
 
-
 @font-face {
-  font-family: 'Helvetica';
-  src: url('../fonts/Helvetica-BoldOblique.ttf') format('truetype');
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica-BoldOblique.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('../fonts/Helvetica.ttf') format('truetype');
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('../fonts/Helvetica-Oblique.ttf') format('truetype');
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica-Oblique.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica 587ebe5a59211';
-  src: url('../fonts/helvetica-light-587ebe5a59211.ttf') format('truetype');
+  font-family: "Helvetica 587ebe5a59211";
+  src: url("../fonts/helvetica-light-587ebe5a59211.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica rounded 5871d05ead8de';
-  src: url('../fonts/helvetica-rounded-bold-5871d05ead8de.otf') format('opentype');
+  font-family: "Helvetica rounded 5871d05ead8de";
+  src: url("../fonts/helvetica-rounded-bold-5871d05ead8de.otf")
+    format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Helvetica compressed 5871d14b6903a';
-  src: url('../fonts/helvetica-compressed-5871d14b6903a.otf') format('opentype');
+  font-family: "Helvetica compressed 5871d14b6903a";
+  src: url("../fonts/helvetica-compressed-5871d14b6903a.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
