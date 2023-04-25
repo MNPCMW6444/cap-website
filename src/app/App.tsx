@@ -191,6 +191,9 @@ const App = () => {
                 <StyledTextField
                   fullWidth
                   required
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   name="annualRevenue"
                   label="Annual recurring revenue"
                   value={formData.annualRevenue}
