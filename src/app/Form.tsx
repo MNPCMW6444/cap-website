@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import VIcon from "./assets/check-white.svg";
-import { WebsiteFormData } from "@caphub-funding/caphub-types";
+import { WebsiteFormData, Currency } from "@caphub-funding/caphub-types";
 import {
   ProvideMainServer,
   MainServerContext,
@@ -152,12 +152,12 @@ const Form = ({
   setAmortization,
 }: FormProps) => {
   const [formData, setFormData] = useState<WebsiteFormData>({
-    annualRevenue: "",
-    currency: "EUR",
-    annualGrowthRate: ">150%",
-    currentRunway: "6-12 months",
+    annualRevenue: 0,
+    currency: Currency.EUR,
+    annualGrowthRate: 0,
+    currentRunway: 0,
     termLength: 6,
-    gracePeriod: "0 months",
+    gracePeriod: 0,
     email: "",
   });
 
@@ -219,6 +219,7 @@ const Form = ({
                     shrink: true,
                   }}
                   name="annualRevenue"
+                  type="number"
                   label="Annual recurring revenue"
                   value={formData.annualRevenue}
                   onChange={handleChange}
@@ -226,6 +227,7 @@ const Form = ({
                 />
                 <StyledTextField
                   fullWidth
+                  type="number"
                   required
                   select
                   name="currency"
@@ -233,15 +235,19 @@ const Form = ({
                   value={formData.currency}
                   onChange={handleChange}
                   sx={{ minWidth: 120 }}
-                >
-                  <MenuItem value="EUR">EUR</MenuItem>
-                  <MenuItem value="USD">USD</MenuItem>
+                ><>
+                    {() => {
+                      for (const c in Currency) {
+                        return <MenuItem value={c}>c</MenuItem>
+                      }
+                    }}</>
                 </StyledTextField>
               </Stack>
             </Box>
             <Box sx={{ mt: 3 }}>
               <StyledTextField
                 fullWidth
+                type="number"
                 required
                 select
                 name="annualGrowthRate"
@@ -249,19 +255,21 @@ const Form = ({
                 value={formData.annualGrowthRate}
                 onChange={handleChange}
               >
-                <MenuItem value="" disabled>
+                <MenuItem value={0} disabled>
                   Select
                 </MenuItem>
-                <MenuItem value="<15">&lt;15%</MenuItem>
-                <MenuItem value="15_50">15-50%</MenuItem>
-                <MenuItem value="50_100">50-100%</MenuItem>
-                <MenuItem value="100_150">100-150%</MenuItem>
-                <MenuItem value=">150">&gt;150%</MenuItem>
+                <MenuItem value={15}>{"<15%"}</MenuItem>
+                <MenuItem value={50}>{"15-50%"}</MenuItem>
+                <MenuItem value={100}>{"50-100%"}</MenuItem>
+                <MenuItem value={150}>{"100-150%"}</MenuItem>
+                <MenuItem value={200}>{">150%"}</MenuItem>
               </StyledTextField>
+
             </Box>
             <Box sx={{ mt: 3 }}>
               <StyledTextField
                 fullWidth
+                type="number"
                 required
                 select
                 name="currentRunway"
@@ -269,14 +277,14 @@ const Form = ({
                 value={formData.currentRunway}
                 onChange={handleChange}
               >
-                <MenuItem value="" disabled>
+                <MenuItem value={0} disabled>
                   Select
                 </MenuItem>
-                <MenuItem value="1-3">1-3 months</MenuItem>
-                <MenuItem value="3-6">3-6 months</MenuItem>
-                <MenuItem value="6-12">6-12 months</MenuItem>
-                <MenuItem value="12-18">12-18 months</MenuItem>
-                <MenuItem value=">18">&gt;18 months</MenuItem>
+                <MenuItem value={3}>{"1-3 months"}</MenuItem>
+                <MenuItem value={6}>{"3-6 months"}</MenuItem>
+                <MenuItem value={12}>{"6-12 months"}</MenuItem>
+                <MenuItem value={18}>{"12-18 months"}</MenuItem>
+                <MenuItem value={24}>{">18 months"}</MenuItem>
               </StyledTextField>
             </Box>
             <Box sx={{ mt: 3 }}>
@@ -300,17 +308,17 @@ const Form = ({
                 onChange={handleChange}
               >
                 <StyledFormControlLabel
-                  value="0"
+                  value={0}
                   control={<Radio />}
                   label="0 Months"
                 />
                 <StyledFormControlLabel
-                  value="3"
+                  value={3}
                   control={<Radio />}
                   label="3 Months"
                 />
                 <StyledFormControlLabel
-                  value="6"
+                  value={6}
                   control={<Radio />}
                   label="6 Months"
                 />
