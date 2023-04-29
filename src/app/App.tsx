@@ -20,6 +20,7 @@ import {
   ProvideMainServer,
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
+import Full from "./Full";
 
 const marks = [
   { value: 6, label: "6" },
@@ -149,8 +150,10 @@ const App = () => {
   });
 
   const [action, setAction] = useState<keyof ActionStateType>("IDLE");
+  const [full, setFull] = useState<boolean>(false);
 
   const handleChange = (e: any) => {
+    setFull(true);
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -178,7 +181,9 @@ const App = () => {
       });
   };
 
-  return (
+  return full ? (
+    <Full />
+  ) : (
     <ProvideMainServer>
       <StyledContainer maxWidth="sm">
         <Box sx={{ mt: 8 }}>
