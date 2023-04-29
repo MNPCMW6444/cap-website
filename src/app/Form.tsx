@@ -22,6 +22,7 @@ import {
 import { styled } from "@mui/system";
 import VIcon from "./assets/check-white.svg";
 import {
+  Currency,
   PositiveNumber,
   WebsiteFormData,
   toPositiveNumber,
@@ -31,17 +32,6 @@ import {
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
 import App from "./App";
-
-enum Currency {
-  EUR = "EUR",
-  GBP = "GBP",
-  CHF = "CHF",
-  RUB = "RUB",
-  TRY = "TRY",
-  ZAR = "ZAR",
-  ILS = "ILS",
-  AED = "AED",
-}
 
 const marks = [
   { value: 6, label: "6" },
@@ -183,8 +173,18 @@ const Form = ({
     inner && send();
   }, [formData]);
 
-  const handleSliderChange = (_: any, newValue: any) => {
-    setFormData({ ...formData, termLength: newValue });
+  const handleSliderChange = (
+    event: Event,
+    value: number | number[],
+    activeThumb: number
+  ) => {
+    setFormData({
+      ...formData,
+      termLength: {
+        ...formData.termLength,
+        amount: (toPositiveNumber(value as number) || 1) as PositiveNumber,
+      },
+    });
     inner && send();
   };
 
@@ -239,7 +239,7 @@ const Form = ({
                   name="annualRevenue"
                   type="number"
                   label="Annual recurring revenue"
-                  value={formData.annualRevenue}
+                  value={formData.annualRevenue?.amount}
                   onChange={(e) =>
                     setFormData({
                       ...formData,
@@ -287,7 +287,7 @@ const Form = ({
                 select
                 name="annualGrowthRate"
                 label="Annual growth rate"
-                value={formData.annualGrowthRate}
+                value={formData.annualGrowthRate?.amount}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
@@ -298,16 +298,7 @@ const Form = ({
                     },
                   })
                 }
-              >
-                <MenuItem value={0} disabled>
-                  Select
-                </MenuItem>
-                <MenuItem value={15}>{"<15%"}</MenuItem>
-                <MenuItem value={50}>{"15-50%"}</MenuItem>
-                <MenuItem value={100}>{"50-100%"}</MenuItem>
-                <MenuItem value={150}>{"100-150%"}</MenuItem>
-                <MenuItem value={200}>{">150%"}</MenuItem>
-              </StyledTextField>
+              ></StyledTextField>
             </Box>
             <Box sx={{ mt: 3 }}>
               <StyledTextField
@@ -317,23 +308,23 @@ const Form = ({
                 select
                 name="currentRunway"
                 label="Current runway"
-                value={formData.currentRunway}
-                onChange={handleChange}
-              >
-                <MenuItem value={0} disabled>
-                  Select
-                </MenuItem>
-                <MenuItem value={3}>{"1-3 months"}</MenuItem>
-                <MenuItem value={6}>{"3-6 months"}</MenuItem>
-                <MenuItem value={12}>{"6-12 months"}</MenuItem>
-                <MenuItem value={18}>{"12-18 months"}</MenuItem>
-                <MenuItem value={24}>{">18 months"}</MenuItem>
-              </StyledTextField>
+                value={formData.currentRunway?.amount}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    currentRunway: {
+                      ...formData.currentRunway,
+                      amount: (toPositiveNumber(parseInt(e.target.value)) ||
+                        1) as PositiveNumber,
+                    },
+                  })
+                }
+              ></StyledTextField>
             </Box>
             <Box sx={{ mt: 3 }}>
               <StyledFormLabel>Term length in months</StyledFormLabel>
               <CustomSlider
-                value={formData.termLength}
+                value={formData.termLength?.amount}
                 min={6}
                 max={15}
                 step={3}
@@ -348,7 +339,16 @@ const Form = ({
                 aria-label="Grace Period"
                 name="gracePeriod"
                 value={formData.gracePeriod}
-                onChange={handleChange}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    gracePeriod: {
+                      ...formData.gracePeriod,
+                      amount: (toPositiveNumber(parseInt(e.target.value)) ||
+                        1) as PositiveNumber,
+                    },
+                  })
+                }
               >
                 <StyledFormControlLabel
                   value={0}
@@ -376,7 +376,9 @@ const Form = ({
                   label="Email"
                   placeholder="Enter your email"
                   value={formData.email}
-                  onChange={handleChange}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                 />
               </Box>
             )}
