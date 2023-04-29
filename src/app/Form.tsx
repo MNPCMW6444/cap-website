@@ -1,4 +1,10 @@
-import { useContext, useState, SetStateAction, Dispatch } from "react";
+import {
+  useContext,
+  useState,
+  SetStateAction,
+  Dispatch,
+  useEffect,
+} from "react";
 import { Stack } from "@mui/material";
 import {
   Container,
@@ -15,12 +21,27 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import VIcon from "./assets/check-white.svg";
-import { WebsiteFormData, Currency } from "@caphub-funding/caphub-types";
+import {
+  PositiveNumber,
+  WebsiteFormData,
+  toPositiveNumber,
+} from "@caphub-funding/caphub-types";
 import {
   ProvideMainServer,
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
 import App from "./App";
+
+enum Currency {
+  EUR = "EUR",
+  GBP = "GBP",
+  CHF = "CHF",
+  RUB = "RUB",
+  TRY = "TRY",
+  ZAR = "ZAR",
+  ILS = "ILS",
+  AED = "AED",
+}
 
 const marks = [
   { value: 6, label: "6" },
@@ -151,24 +172,16 @@ const Form = ({
   setInterest,
   setAmortization,
 }: FormProps) => {
-  const [formData, setFormData] = useState<WebsiteFormData>({
-    annualRevenue: 0,
-    currency: Currency.EUR,
-    annualGrowthRate: 0,
-    currentRunway: 0,
-    termLength: 6,
-    gracePeriod: 0,
-    email: "",
-  });
+  const [formData, setFormData] = useState<WebsiteFormData>(
+    {} as WebsiteFormData
+  );
 
   const [action, setAction] = useState<keyof ActionStateType>("IDLE");
   const [full, setFull] = useState<boolean>(false);
 
-  const handleChange = (e: any) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  useEffect(() => {
     inner && send();
-  };
+  }, [formData]);
 
   const handleSliderChange = (_: any, newValue: any) => {
     setFormData({ ...formData, termLength: newValue });
@@ -200,6 +213,11 @@ const Form = ({
     }
   };
 
+  const currencies = [];
+  for (const currency in Currency) {
+    currencies.push(currency);
+  }
+
   return full ? (
     <App />
   ) : (
@@ -222,7 +240,16 @@ const Form = ({
                   type="number"
                   label="Annual recurring revenue"
                   value={formData.annualRevenue}
-                  onChange={handleChange}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      annualRevenue: {
+                        ...formData.annualRevenue,
+                        amount: (toPositiveNumber(parseInt(e.target.value)) ||
+                          1) as PositiveNumber,
+                      },
+                    })
+                  }
                   sx={{ flexGrow: 1 }}
                 />
                 <StyledTextField
@@ -232,15 +259,23 @@ const Form = ({
                   select
                   name="currency"
                   label="Currency"
-                  value={formData.currency}
-                  onChange={handleChange}
+                  value={formData.annualRevenue?.currency}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      annualRevenue: {
+                        ...formData.annualRevenue,
+                        currency: e.target.value as Currency,
+                      },
+                    })
+                  }
                   sx={{ minWidth: 120 }}
-                ><>
-                    {() => {
-                      for (const c in Currency) {
-                        return <MenuItem value={c}>c</MenuItem>
-                      }
-                    }}</>
+                >
+                  <>
+                    {currencies.map((currency) => (
+                      <MenuItem value={currency}>{currency}</MenuItem>
+                    ))}
+                  </>
                 </StyledTextField>
               </Stack>
             </Box>
@@ -253,7 +288,16 @@ const Form = ({
                 name="annualGrowthRate"
                 label="Annual growth rate"
                 value={formData.annualGrowthRate}
-                onChange={handleChange}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    annualGrowthRate: {
+                      ...formData.annualGrowthRate,
+                      amount: (toPositiveNumber(parseInt(e.target.value)) ||
+                        1) as PositiveNumber,
+                    },
+                  })
+                }
               >
                 <MenuItem value={0} disabled>
                   Select
@@ -264,7 +308,6 @@ const Form = ({
                 <MenuItem value={150}>{"100-150%"}</MenuItem>
                 <MenuItem value={200}>{">150%"}</MenuItem>
               </StyledTextField>
-
             </Box>
             <Box sx={{ mt: 3 }}>
               <StyledTextField
