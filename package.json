@@ -20,6 +20,7 @@
   },
   "scripts": {
     "predev": "npm install",
+    "update": "npx npm-check-updates -u",
     "start": "react-scripts start",
     "dev": "PORT=5999 react-scripts start",
     "build": "react-scripts build",
