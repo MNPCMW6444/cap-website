@@ -4,6 +4,7 @@ import {
   SetStateAction,
   Dispatch,
   useEffect,
+  useCallback,
 } from "react";
 import { Stack } from "@mui/material";
 import {
@@ -169,10 +170,6 @@ const Form = ({
   const [action, setAction] = useState<keyof ActionStateType>("IDLE");
   const [full, setFull] = useState<boolean>(false);
 
-  useEffect(() => {
-    inner && send();
-  }, [formData]);
-
   const handleSliderChange = (
     event: Event,
     value: number | number[],
@@ -190,7 +187,7 @@ const Form = ({
 
   const axiosInstance = useContext(MainServerContext);
 
-  const send = () =>
+  const send = useCallback(() => {
     axiosInstance
       .post("website/calculate", {
         stringifiedFormData: JSON.stringify(formData),
@@ -203,6 +200,18 @@ const Form = ({
           setAmortization && setAmortization(res?.data?.amortization || 0);
         } else setFull(true);
       });
+  }, [
+    axiosInstance,
+    formData,
+    inner,
+    setAmortization,
+    setInterest,
+    setLoanAmount,
+  ]);
+
+  useEffect(() => {
+    inner && send();
+  }, [formData, inner, send]);
 
   const sendForm = () => {
     setAction("DOING");
