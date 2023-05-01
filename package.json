@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@caphub-funding/caphub-types": "^1.0.28",
-    "@caphub-funding/mainserver-provider": "^3.3.55",
+    "@caphub-funding/mainserver-provider": "^3.3.57",
     "@emotion/react": "^11.10.8",
     "@emotion/styled": "^11.10.8",
     "@mui/lab": "^5.0.0-alpha.128",
