@@ -14,14 +14,9 @@ import {
   TextField,
   MenuItem,
   Button,
-  RadioGroup,
-  FormControlLabel,
   FormLabel,
-  Radio,
-  Slider,
 } from "@mui/material";
 import { styled } from "@mui/system";
-import VIcon from "./assets/check-white.svg";
 import {
   Currency,
   PositiveNumber,
@@ -33,6 +28,9 @@ import {
   MainServerContext,
 } from "@caphub-funding/mainserver-provider";
 import App from "./App";
+import CurrencySelect from "./form/CurrencySelect";
+import GracePeriodRadioGroup from "./form/GracePeriodRadioGroup";
+import TermLengthSlider from "./form/TermLengthSlider";
 
 const marks = [
   { value: 6, label: "6" },
@@ -72,32 +70,6 @@ const StyledButton = styled(Button)`
   }
 `;
 
-const CustomSlider = styled(Slider)`
-  color: #3f51b5;
-  .MuiSlider-valueLabel {
-    background-color: #3f51b5;
-    color: #fff;
-  }
-  .MuiSlider-mark {
-    background-color: #bfbfbf;
-    width: 1px;
-    height: 12px;
-  }
-  .MuiSlider-markLabel {
-    color: #fff;
-    font-size: 0.875rem;
-  }
-  .MuiSlider-thumb {
-    position: relative;
-    background-image: url(${VIcon});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 24px;
-    height: 24px;
-  }
-`;
-
 const StyledTextField = styled(TextField)`
   label.Mui-focused {
     color: #fff;
@@ -127,13 +99,6 @@ const StyledTextField = styled(TextField)`
 
 const StyledFormLabel = styled(FormLabel)`
   color: #fff;
-`;
-
-const StyledFormControlLabel = styled(FormControlLabel)`
-  color: #fff;
-  .MuiRadio-root {
-    color: #fff;
-  }
 `;
 
 const StyledTypography = styled(Typography)`
@@ -169,21 +134,6 @@ const Form = ({
 
   const [action, setAction] = useState<keyof ActionStateType>("IDLE");
   const [full, setFull] = useState<boolean>(false);
-
-  const handleSliderChange = (
-    event: Event,
-    value: number | number[],
-    activeThumb: number
-  ) => {
-    setFormData({
-      ...formData,
-      termLength: {
-        ...formData.termLength,
-        amount: (toPositiveNumber(value as number) || 1) as PositiveNumber,
-      },
-    });
-    inner && send();
-  };
 
   const axiosInstance = useContext(MainServerContext);
 
@@ -261,13 +211,7 @@ const Form = ({
                   }
                   sx={{ flexGrow: 1 }}
                 />
-                <StyledTextField
-                  fullWidth
-                  type="number"
-                  required
-                  select
-                  name="currency"
-                  label="Currency"
+                <CurrencySelect
                   value={formData.annualRevenue?.currency}
                   onChange={(e) =>
                     setFormData({
@@ -278,14 +222,7 @@ const Form = ({
                       },
                     })
                   }
-                  sx={{ minWidth: 120 }}
-                >
-                  <>
-                    {currencies.map((currency) => (
-                      <MenuItem value={currency}>{currency}</MenuItem>
-                    ))}
-                  </>
-                </StyledTextField>
+                />
               </Stack>
             </Box>
             <Box sx={{ mt: 3 }}>
@@ -332,22 +269,14 @@ const Form = ({
             </Box>
             <Box sx={{ mt: 3 }}>
               <StyledFormLabel>Term length in months</StyledFormLabel>
-              <CustomSlider
+              <TermLengthSlider
                 value={formData.termLength?.amount}
-                min={6}
-                max={15}
-                step={3}
-                marks={marks}
-                valueLabelDisplay="auto"
-                onChange={handleSliderChange}
+                onChange={() => {}}
               />
             </Box>
             <Box sx={{ mt: 3 }}>
-              <RadioGroup
-                row
-                aria-label="Grace Period"
-                name="gracePeriod"
-                value={formData.gracePeriod}
+              <GracePeriodRadioGroup
+                value={formData.gracePeriod?.amount}
                 onChange={(e) =>
                   setFormData({
                     ...formData,
@@ -358,23 +287,7 @@ const Form = ({
                     },
                   })
                 }
-              >
-                <StyledFormControlLabel
-                  value={0}
-                  control={<Radio />}
-                  label="0 Months"
-                />
-                <StyledFormControlLabel
-                  value={3}
-                  control={<Radio />}
-                  label="3 Months"
-                />
-                <StyledFormControlLabel
-                  value={6}
-                  control={<Radio />}
-                  label="6 Months"
-                />
-              </RadioGroup>
+              />
             </Box>
             {!inner && (
               <Box sx={{ mt: 3 }}>
@@ -404,5 +317,3 @@ const Form = ({
     </ProvideMainServer>
   );
 };
-
-export default Form;
