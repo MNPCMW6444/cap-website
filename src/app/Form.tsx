@@ -22,11 +22,11 @@ import {
   PositiveNumber,
   WebsiteFormData,
   toPositiveNumber,
-} from "@caphub-funding/caphub-types";
+} from "@caphub-group/caphub-types";
 import {
   ProvideMainServer,
   MainServerContext,
-} from "@caphub-funding/mainserver-provider";
+} from "@caphub-group/mainserver-provider";
 import App from "./App";
 import CurrencySelect from "./form/CurrencySelect";
 import GracePeriodRadioGroup from "./form/GracePeriodRadioGroup";

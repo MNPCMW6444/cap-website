@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField, MenuItem } from "@mui/material";
 import { styled } from "@mui/system";
-import { Currency } from "@caphub-funding/caphub-types";
+import { Currency } from "@caphub-group/caphub-types";
 
 const StyledTextField = styled(TextField)`
   label.Mui-focused {
