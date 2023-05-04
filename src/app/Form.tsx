@@ -12,7 +12,6 @@ import {
   Box,
   Typography,
   TextField,
-  MenuItem,
   Button,
   FormLabel,
 } from "@mui/material";
@@ -31,13 +30,6 @@ import App from "./App";
 import CurrencySelect from "./form/CurrencySelect";
 import GracePeriodRadioGroup from "./form/GracePeriodRadioGroup";
 import TermLengthSlider from "./form/TermLengthSlider";
-
-const marks = [
-  { value: 6, label: "6" },
-  { value: 9, label: "9" },
-  { value: 12, label: "12" },
-  { value: 15, label: "15" },
-];
 
 const StyledContainer = styled(Container)`
   font-family: "Helvetica", sans-serif;
@@ -213,12 +205,12 @@ const Form = ({
                 />
                 <CurrencySelect
                   value={formData.annualRevenue?.currency}
-                  onChange={(e) =>
+                  onChange={(value) =>
                     setFormData({
                       ...formData,
                       annualRevenue: {
                         ...formData.annualRevenue,
-                        currency: e.target.value as Currency,
+                        currency: value as Currency,
                       },
                     })
                   }
@@ -317,3 +309,5 @@ const Form = ({
     </ProvideMainServer>
   );
 };
+
+export default Form;

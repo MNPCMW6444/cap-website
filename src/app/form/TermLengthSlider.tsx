@@ -1,7 +1,7 @@
 import React from "react";
 import { Slider } from "@mui/material";
 import { styled } from "@mui/system";
-import VIcon from "./assets/check-white.svg";
+import VIcon from "../assets/check-white.svg";
 
 const CustomSlider = styled(Slider)`
   color: #3f51b5;
