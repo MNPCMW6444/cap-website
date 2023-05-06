@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField } from "@mui/material";
 import { FieldProps } from ".";
-import { BusinessModel } from "../types";
+import { BusinessModel } from "@caphub-group/caphub-types";
 
 const BMField = ({ formData, setFormData }: FieldProps) => {
   return (

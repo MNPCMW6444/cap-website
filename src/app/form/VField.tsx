@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField } from "@mui/material";
 import { FieldProps } from ".";
-import { Vertical } from "../types";
+import { Vertical } from "@caphub-group/caphub-types";
 
 const VField = ({ formData, setFormData }: FieldProps) => {
   return (

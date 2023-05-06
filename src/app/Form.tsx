@@ -12,7 +12,6 @@ import TPField from "./form/TPField";
 import GPField from "./form/GPField";
 import EmailField from "./form/EmailField";
 
-
 import {
   useContext,
   useState,
@@ -21,22 +20,9 @@ import {
   useEffect,
   useCallback,
 } from "react";
-import { Stack } from "@mui/material";
-import {
-  Container,
-  Box,
-  Typography,
-  TextField,
-  Button,
-  FormLabel,
-} from "@mui/material";
+import { Container, Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/system";
-import {
-  Currency,
-  PositiveNumber,
-  WebsiteFormData,
-  toPositiveNumber,
-} from "@caphub-group/caphub-types";
+import { Currency, WebsiteFormData } from "@caphub-group/caphub-types";
 import {
   ProvideMainServer,
   MainServerContext,
@@ -71,37 +57,6 @@ const StyledButton = styled(Button)`
   &:hover {
     background-color: #536dfe;
   }
-`;
-
-const StyledTextField = styled(TextField)`
-  label.Mui-focused {
-    color: #fff;
-  }
-  .MuiInputLabel-root {
-    color: #fff;
-  }
-  .MuiInputBase-root {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    padding: 6px 12px;
-  }
-  .MuiInput-underline:before {
-    border-bottom-color: #fff;
-  }
-  .MuiInput-underline:after {
-    border-bottom-color: #fff;
-  }
-  .MuiInput-underline:hover:not(.Mui-disabled):before {
-    border-bottom-color: #fff;
-  }
-  .MuiSelect-icon {
-    color: #fff;
-  }
-`;
-
-const StyledFormLabel = styled(FormLabel)`
-  color: #fff;
 `;
 
 const StyledTypography = styled(Typography)`

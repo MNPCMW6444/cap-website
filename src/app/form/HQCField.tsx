@@ -1,7 +1,7 @@
 import React from "react";
 import { TextField } from "@mui/material";
 import { FieldProps } from ".";
-import { Country } from "../types";
+import { Country } from "@caphub-group/caphub-types";
 
 const HQCField = ({ formData, setFormData }: FieldProps) => {
   return (
