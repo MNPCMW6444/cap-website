@@ -29,7 +29,7 @@ const GPField = ({ formData, setFormData }: FieldProps) => {
         type="number"
         name="gracePeriodAmount"
         label="Grace Period Amount"
-        value={formData.gracePeriod.amount}
+        value={formData.gracePeriod?.amount}
         onChange={handleAmountChange}
       />
       <TextField
@@ -38,7 +38,7 @@ const GPField = ({ formData, setFormData }: FieldProps) => {
         required
         name="gracePeriodUnit"
         label="Grace Period Unit"
-        value={formData.gracePeriod.unit}
+        value={formData.gracePeriod?.unit}
         onChange={handleUnitChange}
         SelectProps={{
           native: true,
