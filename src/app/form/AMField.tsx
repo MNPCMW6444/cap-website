@@ -29,7 +29,7 @@ const AMField = ({ formData, setFormData }: FieldProps) => {
         type="number"
         name="annualGrowthRateAmount"
         label="Annual Growth Rate Amount"
-        value={formData.annualGrowthRate.amount}
+        value={formData.annualGrowthRate?.amount}
         onChange={handleAmountChange}
       />
       <TextField
@@ -38,7 +38,7 @@ const AMField = ({ formData, setFormData }: FieldProps) => {
         required
         name="annualGrowthRateUnit"
         label="Annual Growth Rate Unit"
-        value={formData.annualGrowthRate.unit}
+        value={formData.annualGrowthRate?.unit}
         onChange={handleUnitChange}
         SelectProps={{
           native: true,
