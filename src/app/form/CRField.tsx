@@ -2,23 +2,21 @@ import { PositiveNumber, toPositiveNumber } from "@caphub-group/caphub-types";
 import { TextField } from "@mui/material";
 import { FieldProps } from ".";
 
-const ARRField = ({ formData, setFormData }: FieldProps) => {
+const CRField = ({ formData, setFormData }: FieldProps) => {
   return (
     <TextField
       fullWidth
-      required
-      InputLabelProps={{
-        shrink: true,
-      }}
-      name="annualRevenue"
       type="number"
-      label="Annual recurring revenue"
-      value={formData.annualRevenue?.amount}
+      required
+      select
+      name="currentRunway"
+      label="Current runway"
+      value={formData.currentRunway?.amount}
       onChange={(e) =>
         setFormData({
           ...formData,
-          annualRevenue: {
-            ...formData.annualRevenue,
+          currentRunway: {
+            ...formData.currentRunway,
             amount: (toPositiveNumber(parseInt(e.target.value)) ||
               1) as PositiveNumber,
           },
@@ -28,4 +26,4 @@ const ARRField = ({ formData, setFormData }: FieldProps) => {
   );
 };
 
-export default ARRField;
+export default CRField;

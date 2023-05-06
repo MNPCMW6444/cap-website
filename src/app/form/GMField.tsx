@@ -1,6 +1,7 @@
 import React from "react";
 import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { styled } from "@mui/system";
+import { FieldProps } from ".";
 
 const StyledFormControlLabel = styled(FormControlLabel)`
   color: #fff;
@@ -33,4 +34,20 @@ const GracePeriodRadioGroup: React.FC<GracePeriodRadioGroupProps> = ({
   );
 };
 
-export default GracePeriodRadioGroup;
+const GMField = ({ formData, setFormData }: FieldProps) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      gracePeriod: parseInt(event.target.value),
+    });
+  };
+
+  return (
+    <GracePeriodRadioGroup
+      value={formData.gracePeriod}
+      onChange={handleChange}
+    />
+  );
+};
+
+export default GMField;

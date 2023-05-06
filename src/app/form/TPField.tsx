@@ -2,6 +2,7 @@ import React from "react";
 import { Slider } from "@mui/material";
 import { styled } from "@mui/system";
 import VIcon from "../assets/check-white.svg";
+import { FieldProps } from ".";
 
 const CustomSlider = styled(Slider)`
   color: #3f51b5;
@@ -29,15 +30,7 @@ const CustomSlider = styled(Slider)`
   }
 `;
 
-interface TermLengthSliderProps {
-  value: number;
-  onChange: (value: number) => void;
-}
-
-const TermLengthSlider: React.FC<TermLengthSliderProps> = ({
-  value,
-  onChange,
-}) => {
+const TermLengthSlider: React.FC<any> = ({ value, onChange }) => {
   const marks = [
     { value: 6, label: "6" },
     { value: 9, label: "9" },
@@ -66,4 +59,20 @@ const TermLengthSlider: React.FC<TermLengthSliderProps> = ({
   );
 };
 
-export default TermLengthSlider;
+const TPField = ({ formData, setFormData }: FieldProps) => {
+  const handleChange = (
+    event: React.ChangeEvent<{}>,
+    value: number | number[]
+  ) => {
+    setFormData({
+      ...formData,
+      termLength: Array.isArray(value) ? value[0] : value,
+    });
+  };
+
+  return (
+    <TermLengthSlider value={formData.termLength} onChange={handleChange} />
+  );
+};
+
+export default TPField;
