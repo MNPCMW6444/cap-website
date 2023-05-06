@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Form from "./app/Form";
+import CaphubThemeProvider from "./app/providers/style/CaphubThemeProvider";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -8,7 +9,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Form />
+    <CaphubThemeProvider>
+      <Form />
+    </CaphubThemeProvider>
   </React.StrictMode>
 );
 
