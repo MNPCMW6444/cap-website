@@ -1,15 +1,16 @@
-/* ARRField.tsx
-BMField.tsx
-GRField.tsx
-VField.tsx
-GMField.tsx
-CRField.tsx
-BSField.tsx
-HQCField.tsx
-AMField.tsx
-TPField.tsx
-GPField.tsx
-EmailField.tsx */
+import { Grid } from "@mui/material";
+import ARRField from "./ARRField";
+import BMField from "./BMField";
+import GRField from "./GRField";
+import VField from "./VField";
+import GMField from "./GMField";
+import CRField from "./CRField";
+import BSField from "./BSField";
+import HQCField from "./HQCField";
+import AMField from "./AMField";
+import TPField from "./TPField";
+import GPField from "./GPField";
+import EmailField from "./EmailField";
 
 import {
   useContext,
@@ -192,123 +193,46 @@ const Form = ({
             See What You Can Get
           </StyledTypography>
           <form>
-            <Box sx={{ mt: 8 }}>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <StyledTextField
-                  fullWidth
-                  required
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  name="annualRevenue"
-                  type="number"
-                  label="Annual recurring revenue"
-                  value={formData.annualRevenue?.amount}
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      annualRevenue: {
-                        ...formData.annualRevenue,
-                        amount: (toPositiveNumber(parseInt(e.target.value)) ||
-                          1) as PositiveNumber,
-                      },
-                    })
-                  }
-                  sx={{ flexGrow: 1 }}
-                />
-                <CurrencySelect
-                  value={formData.annualRevenue?.currency}
-                  onChange={(value) =>
-                    setFormData({
-                      ...formData,
-                      annualRevenue: {
-                        ...formData.annualRevenue,
-                        currency: value as Currency,
-                      },
-                    })
-                  }
-                />
-              </Stack>
-            </Box>
-            <Box sx={{ mt: 3 }}>
-              <StyledTextField
-                fullWidth
-                type="number"
-                required
-                select
-                name="annualGrowthRate"
-                label="Annual growth rate"
-                value={formData.annualGrowthRate?.amount}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    annualGrowthRate: {
-                      ...formData.annualGrowthRate,
-                      amount: (toPositiveNumber(parseInt(e.target.value)) ||
-                        1) as PositiveNumber,
-                    },
-                  })
-                }
-              ></StyledTextField>
-            </Box>
-            <Box sx={{ mt: 3 }}>
-              <StyledTextField
-                fullWidth
-                type="number"
-                required
-                select
-                name="currentRunway"
-                label="Current runway"
-                value={formData.currentRunway?.amount}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    currentRunway: {
-                      ...formData.currentRunway,
-                      amount: (toPositiveNumber(parseInt(e.target.value)) ||
-                        1) as PositiveNumber,
-                    },
-                  })
-                }
-              ></StyledTextField>
-            </Box>
-            <Box sx={{ mt: 3 }}>
-              <StyledFormLabel>Term length in months</StyledFormLabel>
-              <TermLengthSlider
-                value={formData.termLength?.amount}
-                onChange={() => {}}
-              />
-            </Box>
-            <Box sx={{ mt: 3 }}>
-              <GracePeriodRadioGroup
-                value={formData.gracePeriod?.amount}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    gracePeriod: {
-                      ...formData.gracePeriod,
-                      amount: (toPositiveNumber(parseInt(e.target.value)) ||
-                        1) as PositiveNumber,
-                    },
-                  })
-                }
-              />
-            </Box>
-            {!inner && (
-              <Box sx={{ mt: 3 }}>
-                <StyledTextField
-                  fullWidth
-                  required
-                  name="email"
-                  label="Email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                />
-              </Box>
-            )}
+            return (
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <ARRField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <BMField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <GRField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <VField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <GMField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <CRField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <BSField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <HQCField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <AMField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TPField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <GPField formData={formData} setFormData={setFormData} />
+              </Grid>
+              <Grid item xs={12}>
+                <EmailField formData={formData} setFormData={setFormData} />
+              </Grid>
+            </Grid>
+            );
             {!inner && (
               <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
                 <StyledButton onClick={sendForm} variant="contained">
