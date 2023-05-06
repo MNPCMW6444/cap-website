@@ -1,16 +1,17 @@
 import { Grid } from "@mui/material";
-import ARRField from "./ARRField";
-import BMField from "./BMField";
-import GRField from "./GRField";
-import VField from "./VField";
-import GMField from "./GMField";
-import CRField from "./CRField";
-import BSField from "./BSField";
-import HQCField from "./HQCField";
-import AMField from "./AMField";
-import TPField from "./TPField";
-import GPField from "./GPField";
-import EmailField from "./EmailField";
+import ARRField from "./form/ARRField";
+import BMField from "./form/BMField";
+import GRField from "./form/GRField";
+import VField from "./form/VField";
+import GMField from "./form/GMField";
+import CRField from "./form/CRField";
+import BSField from "./form/BSField";
+import HQCField from "./form/HQCField";
+import AMField from "./form/AMField";
+import TPField from "./form/TPField";
+import GPField from "./form/GPField";
+import EmailField from "./form/EmailField";
+
 
 import {
   useContext,
@@ -41,10 +42,6 @@ import {
   MainServerContext,
 } from "@caphub-group/mainserver-provider";
 import App from "./App";
-import CurrencySelect from "./form/CurrencySelect";
-import GracePeriodRadioGroup from "./form/GracePeriodRadioGroup";
-import TermLengthSlider from "./form/TermLengthSlider";
-
 const StyledContainer = styled(Container)`
   font-family: "Helvetica", sans-serif;
   background-color: #000;
