@@ -3,7 +3,7 @@
   "version": "0.1.22",
   "private": true,
   "dependencies": {
-    "@caphub-group/caphub-types": "^3.9.89",
+    "@caphub-group/caphub-types": "^3.9.94",
     "@caphub-group/mainserver-provider": "^4.4.58",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
