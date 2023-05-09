@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { WebsiteForm } from "@caphub-group/website-form";
+import WebsiteForm from "@caphub-group/website-form";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
