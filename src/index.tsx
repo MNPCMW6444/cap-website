@@ -1,17 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Form from "./app/Form";
-import CaphubThemeProvider from "./app/providers/style/CaphubThemeProvider";
 import reportWebVitals from "./reportWebVitals";
+import { WebsiteForm } from "@caphub-group/website-form";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <CaphubThemeProvider>
-      <Form />
-    </CaphubThemeProvider>
+    <WebsiteForm />
   </React.StrictMode>
 );
 
