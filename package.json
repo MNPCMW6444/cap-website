@@ -1,9 +1,9 @@
 {
   "name": "website",
-  "version": "0.1.29",
+  "version": "0.1.33",
   "private": true,
   "dependencies": {
-    "@caphub-group/website-form": "^2.2.62",
+    "@caphub-group/website-form": "^2.2.65",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/lab": "^5.0.0-alpha.129",
