@@ -3,11 +3,11 @@
   "version": "0.1.29",
   "private": true,
   "dependencies": {
-    "@caphub-group/website-form": "^2.2.57",
+    "@caphub-group/website-form": "^2.2.62",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/lab": "^5.0.0-alpha.129",
-    "@mui/material": "^5.12.3",
+    "@mui/material": "^5.13.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^3.3.1"
